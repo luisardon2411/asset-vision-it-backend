@@ -28,7 +28,7 @@ El backend de este proyecto está construido sobre NestJS, elegido por su arquit
 ### Prerrequisitos
 
 - Node.js (versión 12.x o superior)
-- NPM (versión 6.x o superior)
+- YARN (versión 3.x o superior)
 - SQL Server (2017 o superior)
 
 ### Instalación
@@ -42,17 +42,17 @@ cd asset-vision-it
 ## Cómo Correr la Aplicación
 1.  **Modo Desarrollo:**
 ```bash
-npm run start:dev
+yarn start:dev
 ```
 2.  **Modo Producción:**
 ```bash
-npm run build
-npm run start:prod
+yarn build
+yarn start:prod
 ```
 3. **Pruebas:**
 **para asegurar la calidad del software, ejecuta las pruebas disponibles:**
 
 ```bash
-npm run test        # Pruebas unitarias
-npm run test:e2e    # Pruebas end-to-end
+yarn test        # Pruebas unitarias
+yarn test:e2e    # Pruebas end-to-end
 ```
