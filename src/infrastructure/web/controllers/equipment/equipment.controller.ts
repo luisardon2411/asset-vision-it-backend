@@ -1,5 +1,12 @@
 import { EquipmentService } from '@/infrastructure/providers/equipment/equipment.service';
-import { Body, Controller, HttpStatus, Post, UseFilters } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpStatus,
+  Post,
+  UseFilters,
+} from '@nestjs/common';
 import { EquipmentRegisterDto } from '@/infrastructure/web/dtos/equipment/equipment-register.dto';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { HttpExceptionFilter } from '@/core/domain/filters/http-exception.filter';
@@ -28,6 +35,13 @@ export class EquipmentController {
   @ApiResponse({ status: 200, type: ResponseFormat })
   async registerEquipment(@Body() equipment: EquipmentRegisterDto) {
     const response = await this.equipmentService.registerEquipment(equipment);
+    return { data: response, statusCode: HttpStatus.OK };
+  }
+
+  @Get('/total-equipments')
+  @ApiResponse({ status: 200, type: ResponseFormat })
+  async totalEquipments() {
+    const response = await this.equipmentService.getTotalEquipment();
     return { data: response, statusCode: HttpStatus.OK };
   }
 }

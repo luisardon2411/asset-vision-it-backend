@@ -15,7 +15,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new LogginInterceptor(new LoggerService()));
   app.useGlobalInterceptors(new ResponseInterceptor());
   // enable cors
-  app.enableCors({ origin: '*', methods: 'GET,POST' });
+  app.enableCors({ origin: '*', methods: 'GET,POST,PUT,DELETE' });
   // start the app
   await app.listen(3000);
 }

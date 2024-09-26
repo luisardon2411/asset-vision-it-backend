@@ -4,5 +4,8 @@ import { AuthenticationCreateDto } from '@/infrastructure/web/dtos/authenticatio
 export abstract class AuthRepository {
   abstract login(
     authCreateDto: AuthenticationCreateDto,
+  ): Promise<AuthenticationResponseDto | { message: string }>;
+  abstract forgotPassword(
+    authCreateDto: AuthenticationCreateDto,
   ): Promise<AuthenticationResponseDto>;
 }

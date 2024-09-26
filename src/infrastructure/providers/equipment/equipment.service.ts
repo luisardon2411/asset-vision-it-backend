@@ -66,4 +66,16 @@ export class EquipmentService extends EquipmentRepository {
       throwAppropiateException(error.originalError.info.message);
     }
   }
+
+  async getTotalEquipment() {
+    try {
+      const response = await this.equipmentRepository.query(
+        'select COUNT(*) as TotalDispositivos from AssetVisionIT.dbo.AVIT_Devices',
+      );
+      return { properties: { response: response } };
+    } catch (error) {
+      this.loggerService.warn(error, error);
+      throwAppropiateException(error.originalError.info.message);
+    }
+  }
 }

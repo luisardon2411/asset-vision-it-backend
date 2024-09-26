@@ -5,10 +5,15 @@ import { AuthenticationCreateDto } from '@/infrastructure/web/dtos/authenticatio
 
 export class UserLoginCase
   implements
-    UseCase<{ username: string; password: string }, AuthenticationResponseDto>
+    UseCase<
+      { username: string; password: string },
+      AuthenticationResponseDto | { message: string }
+    >
 {
   constructor(private authRepository: AuthRepository) {}
-  execute(state: AuthenticationCreateDto): Promise<AuthenticationResponseDto> {
+  execute(
+    state: AuthenticationCreateDto,
+  ): Promise<AuthenticationResponseDto | { message: string }> {
     return this.authRepository.login(state);
   }
 }
